@@ -1,12 +1,12 @@
 {
-    "name": "ryangjchandler/laravel-cloudflare-turnstile",
+    "name": "javadle/laravel-cloudflare-turnstile",
     "description": "A simple package to help integrate Cloudflare Turnstile.",
     "keywords": [
-        "ryangjchandler",
+        "javadle",
         "laravel",
         "laravel-cloudflare-turnstile"
     ],
-    "homepage": "https://github.com/ryangjchandler/laravel-cloudflare-turnstile",
+    "homepage": "https://github.com/JavaDle/laravel-cloudflare-turnstile-main/settings",
     "license": "MIT",
     "authors": [
         {

@@ -14,7 +14,7 @@ class Turnstile implements Rule
     ) {
     }
 
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         $response = $this->turnstile->siteverify($value);
 
@@ -29,7 +29,7 @@ class Turnstile implements Rule
         return false;
     }
 
-    public function message()
+    public function message(): array|string
     {
         return $this->messages;
     }
@@ -37,14 +37,14 @@ class Turnstile implements Rule
     protected function mapErrorCodeToMessage(string $code): string
     {
         return match ($code) {
-            'missing-input-secret' => 'The secret parameter was not passed.',
-            'invalid-input-secret' => 'The secret parameter was invalid or did not exist.',
-            'missing-input-response' => 'The response parameter was not passed.',
-            'invalid-input-response' => 'The response parameter is invalid or has expired.',
-            'bad-request' => 'The request was rejected because it was malformed.',
-            'timeout-or-duplicate' => 'The response parameter has already been validated before.',
-            'internal-error' => 'An internal error happened while validating the response.',
-            default => 'An unexpected error occurred.',
+            'missing-input-secret' => 'Секретный ключ не был передан.',
+            'invalid-input-secret' => 'Секретный ключ недействителен или не существует.',
+            'missing-input-response' => 'Параметр ответа не был передан.',
+            'invalid-input-response' => 'Параметр ответа недействителен или срок его действия истек.',
+            'bad-request' => 'Запрос был отклонен из-за неправильного формата.',
+            'timeout-or-duplicate' => 'Параметр ответа уже был проверен ранее.',
+            'internal-error' => 'Произошла внутренняя ошибка при проверке ответа.',
+            default => 'Произошла непредвиденная ошибка.',
         };
     }
 }

@@ -3,16 +3,17 @@
 namespace RyanChandler\LaravelCloudflareTurnstile\Responses;
 
 use Illuminate\Contracts\Support\Arrayable;
+use JetBrains\PhpStorm\ArrayShape;
 
 class SiteverifyResponse implements Arrayable
 {
     public function __construct(
-        public readonly bool $success,
-        public readonly array $errorCodes,
+        public bool  $success,
+        public array $errorCodes,
     ) {
     }
 
-    public function toArray(): array
+    #[ArrayShape(['success' => "bool", 'error-codes' => "array"])] public function toArray(): array
     {
         return [
             'success' => $this->success,
